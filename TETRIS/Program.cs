@@ -1,13 +1,19 @@
-﻿using TetrisProject.base;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace TestTetris
+namespace Tetris
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] str)
+        [STAThread]
+        static void Main()
         {
-            
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Tetris_Project());
         }
     }
 }
