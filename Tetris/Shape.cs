@@ -1,10 +1,13 @@
-﻿namespace Tetris
+﻿using System.Drawing;
+
+namespace Tetris
 {
     class Shape
     {
         public int Width;
         public int Height;
         public int[,] Position;
+        public Brush Color;
 
         private int[,] LastPosition;
         public void turn()

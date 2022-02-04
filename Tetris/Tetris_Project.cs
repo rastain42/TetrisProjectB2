@@ -24,7 +24,17 @@ namespace Tetris
             
             this.KeyDown += Form1_KeyDown;
         }
-        
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            if (timer.Enabled){
+                timer.Stop();
+            } else {
+                timer.Start();
+            }
+            pictureBox1.Focus();
+        }
+
         Bitmap canvasBitmap;
         Graphics canvasGraphics;
         int canvasWidth = 15;
@@ -92,7 +102,7 @@ namespace Tetris
             {
                 for (int j = 0; j < currentShape.Height; j++)
                 {
-                    if (currentShape.Dots[j, i] == 1)
+                    if (currentShape.Position[j, i] == 1)
                     {
                         checkIfGameOver();
 
@@ -128,7 +138,7 @@ namespace Tetris
             {
                 for (int j = 0; j < currentShape.Height; j++)
                 {
-                    if (newY + j > 0 && canvasDotArray[newX + i, newY + j] == 1 && currentShape.Dots[j, i] == 1)
+                    if (newY + j > 0 && canvasDotArray[newX + i, newY + j] == 1 && currentShape.Position[j, i] == 1)
                         return false;
                 }
             }
@@ -150,8 +160,8 @@ namespace Tetris
             {
                 for (int j = 0; j < currentShape.Height; j++)
                 {
-                    if (currentShape.Dots[j, i] == 1)
-                        workingGraphics.FillRectangle(Brushes.Black, (currentX + i) * dotSize, (currentY + j) * dotSize, dotSize, dotSize);
+                    if (currentShape.Position[j, i] == 1)
+                        workingGraphics.FillRectangle(currentShape.Color, (currentX + i) * dotSize, (currentY + j) * dotSize, dotSize, dotSize);
                 }
             }
 
@@ -240,7 +250,7 @@ namespace Tetris
                 {
                     canvasGraphics = Graphics.FromImage(canvasBitmap);
                     canvasGraphics.FillRectangle(
-                        canvasDotArray[i, j] == 1 ? Brushes.Black : Brushes.LightGray,
+                        canvasDotArray[i, j] == 1 ? currentShape.Color : Brushes.LightGray,
                         i * dotSize, j * dotSize, dotSize, dotSize
                         );
                 }
@@ -248,7 +258,7 @@ namespace Tetris
 
             pictureBox1.Image = canvasBitmap;
         }
-
+        
         Bitmap nextShapeBitmap;
         Graphics nextShapeGraphics;
         private Shape getNextShape()
@@ -270,7 +280,7 @@ namespace Tetris
                 for (int j = 0; j < shape.Width; j++)
                 {
                     nextShapeGraphics.FillRectangle(
-                        shape.Dots[i, j] == 1 ? Brushes.Black : Brushes.LightGray,
+                        shape.Position[i, j] == 1 ? currentShape.Color : Brushes.LightGray,
                         (startX + j) * dotSize, (startY + i) * dotSize, dotSize, dotSize);
                 }
             }
@@ -279,6 +289,22 @@ namespace Tetris
             pictureBox2.Image = nextShapeBitmap;
 
             return shape;
+        }
+
+
+        private void Tetris_Project_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
         }
     }
 }

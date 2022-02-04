@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 
 namespace Tetris
 {
@@ -16,7 +17,8 @@ namespace Tetris
                         {
                             { 1, 1 },
                             { 1, 1 }
-                        }
+                        },
+                        Color = Brushes.Pink,
                     },
                     new Shape {
                         Width = 1,
@@ -27,7 +29,8 @@ namespace Tetris
                             { 1 },
                             { 1 },
                             { 1 }
-                        }
+                        },
+                        Color = Brushes.Plum,
                     },
                     new Shape {
                         Width = 3,
@@ -36,7 +39,8 @@ namespace Tetris
                         {
                             { 0, 1, 0 },
                             { 1, 1, 1 }
-                        }
+                        },
+                        Color = Brushes.HotPink,
                     },
                     new Shape {
                         Width = 3,
@@ -45,7 +49,8 @@ namespace Tetris
                         {
                             { 0, 0, 1 },
                             { 1, 1, 1 }
-                        }
+                        },
+                        Color = Brushes.PaleVioletRed,
                     },
                     new Shape {
                         Width = 3,
@@ -54,7 +59,8 @@ namespace Tetris
                         {
                             { 1, 0, 0 },
                             { 1, 1, 1 }
-                        }
+                        },
+                        Color = Brushes.CornflowerBlue,
                     },
                     new Shape {
                         Width = 3,
@@ -63,7 +69,8 @@ namespace Tetris
                         {
                             { 1, 1, 0 },
                             { 0, 1, 1 }
-                        }
+                        },
+                        Color = Brushes.Crimson,
                     },
                     new Shape {
                         Width = 3,
@@ -72,7 +79,8 @@ namespace Tetris
                         {
                             { 0, 1, 1 },
                             { 1, 1, 0 }
-                        }
+                        },
+                        Color = Brushes.RoyalBlue,
                     }
                 };
         }
